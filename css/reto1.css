@@ -1,0 +1,21 @@
+.menu{
+  display: flex;
+  align-items: center;
+}
+
+.div_logo{
+  margin: 2em;
+}
+.logo{
+  float: left;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+  margin-left: 2.53164557%; /* 12px / 474px */
+  width: 8.7341772%; /* 231px / 474px */
+}
+
+@media screen and (max-width:340px) {
+  .logo{
+    display: none;
+  }
+}
