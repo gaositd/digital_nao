@@ -13,6 +13,30 @@
     align-items: center;
   }
 
+  .div_influencer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5em;
+  }
+  .div_flex_row_icons{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .img_div_influencer{
+    height: auto;
+    width: 100%;
+  }
+
+  .div_flex_row_icons > i{
+    padding: 1em 0;
+  }
   .name{
     font-family: 'Rubik', sans-serif;
     font-weight: 700;
