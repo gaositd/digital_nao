@@ -24,21 +24,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/ed67e542f9.js" crossorigin="anonymous"></script>
-  <link rel="icon" href="./images/svg/svg-1.svg" type="image/svg+xml" />
+  <link rel="icon" href="./images/svg/credit-card-front.svg" type="image/svg+xml" />
   <title>Landing Page Reto 1</title>
 </head>
 
 <body class="backgcolor">
   <div class="d-flex flex-row mb-3 p-5">
     <div class="p-2 div_logo">
-      <img src="./images/svg/svg-1.svg" class="logo" alt="Logotio SADA" />
+      <img src="./images/svg/credit-card-front.svg" class="logo" alt="Logotio SADA" />
     </div>
     <div class="p-2">
       <nav class="nav justify-content-end p-2">
         <a class="nav-link text-white fw-bolder" aria-current="page" href="#">Conóceme</a>
         <a class="nav-link text-white fw-bolder" href="#">¿Qué hago?</a>
         <a class="nav-link text-white fw-bolder" href="#">Blog</a>
-        <a class="nav-link text-white fw-bolder" href="reto1.html" tabindex="-1" aria-disabled="true">Formulario</a>
       </nav>
     </div>
   </div>
@@ -74,14 +73,82 @@
             <i class="fa-solid fa-scale-balanced fa-2x"></i>
           </div>
           <div class="col div_influencer">
-            <a href='https://iconpacks.net/?utm_source=link-attribution&utm_content=4536'>
-              <img src="./images/svg/influencer-4536.svg" alt="Influencer" />
-            </a>
+            <form name="reto1">
+              <input
+                type="text"
+                class="form-control col-12 col-md-4 mb-3"
+                id="pregunta1"
+                name="pregunta1"
+                placeholder="Mi nombre completo es"
+                aria-placeholder="Mi nombre completo"
+                required
+              />
+
+              <input
+                type="email"
+                class="form-control col-12 col-md-4"
+                id="pregunta2"
+                name="pregunta2"
+                placeholder="Mi correo electrónico es"
+                aria-placeholder="Mi número telefónico es"
+                disabled
+                required
+              />
+              <div class="row align-items-center">
+                <div class="col-6">
+                  <input
+                    type="checkbox"
+                    name="acepto"
+                    id="acepto"
+                    class="form-check-input"
+                    onclick={enableMailField()}
+                  />
+                  <label for="acepto" class="form-label">
+                    <h6>Acepto enviar mis datos personales, he leido los <a href="#">los términos de privacidad</a></h6>
+                  </label>
+                </div>
+                <div class="col-6">
+                  <button
+                    type="submit"
+                    id="formData"
+                    name="formData"
+                    class="btn btn-primary"
+                    onmouseover="checkFileds()"
+                    disabled
+                  >
+                    Envío mi correo y nombre
+                  </button>
+                  <span
+                    id="alertDanger"
+                    name="alertDanger">
+                  </span>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
   </div>
 </body>
+<script>
+  function enableMailField() {
+    let mailField = document.getElementById("pregunta2");
+    mailField.disabled = !mailField.disabled;
+    return mailField
+  }
 
+  const checkFileds = () =>{
+    console.log("testFileds");
+    const valdMial = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const fieldName = document.getElementById('pregunta1');
+
+    if(!valdMial && fieldName.value < 1){
+      return document.getElementById("alertDanger").innerHTML = "Porfavor llena el formulario";
+    }else{
+      return !document.getElementById("formData").disabled
+    }
+
+  }
+</script>
 </html>

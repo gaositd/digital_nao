@@ -21,8 +21,8 @@
     padding: 5em;
   }
   .div_flex_row_icons{
-    width: 50%;
-    height: 100%;
+    width: 2%;
+    height: 100%; 
     display: flex;
     flex-direction: column-reverse;
     justify-content: space-between;
@@ -30,8 +30,8 @@
   }
 
   .img_div_influencer{
+    width: auto;
     height: auto;
-    width: 100%;
   }
 
   .div_flex_row_icons > i{
