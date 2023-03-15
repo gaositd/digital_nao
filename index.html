@@ -29,7 +29,7 @@
 </head>
 
 <body class="backgcolor">
-  <div class="d-flex flex-row mb-3 p-5">
+  <div class="d-flex flex-row mb-3 p-3">
     <div class="p-2 div_logo">
       <img src="./images/svg/credit-card-front.svg" class="logo" alt="Logotio SADA" />
     </div>
@@ -45,7 +45,8 @@
     <div class="p-2 div_landig">
       <p>
       <h1 class="name">L.A. Caroline Sada</h1>
-      <h3 class="name">Creatividad y confianza: los mejores aliados de una influencer</h3>
+      <h3 class="name subtitle">MASTER CLASS: 
+      Creatividad y confianza: los mejores aliados de una influencer</h3>
       <img src="./images/svg/vecteezy_young-woman.svg" class="photo" alt="Caroline Sada" />
       </p>
     </div>
@@ -66,14 +67,11 @@
           </div>
         </div>
         <div class="row p-2">
-          <div class="col div_flex_row_icons">
-            <i class="fa-solid fa-scale-balanced fa-2x"></i>
-            <i class="fa-solid fa-scale-balanced fa-2x"></i>
-            <i class="fa-solid fa-scale-balanced fa-2x"></i>
-            <i class="fa-solid fa-scale-balanced fa-2x"></i>
-          </div>
           <div class="col div_influencer">
-            <form name="reto1">
+            <p class="name subtitle">
+              Apóyame con tu nombre y correo, como agradecimiento te envío gratis la guía definitiva para finianzas de casa
+            </p>
+            <form name="reto1" id="reto1">
               <input
                 type="text"
                 class="form-control col-12 col-md-4 mb-3"
@@ -91,38 +89,40 @@
                 name="pregunta2"
                 placeholder="Mi correo electrónico es"
                 aria-placeholder="Mi número telefónico es"
-                disabled
                 required
               />
               <div class="row align-items-center">
-                <div class="col-6">
+
+                <div class="col-6 privacy">
                   <input
                     type="checkbox"
                     name="acepto"
                     id="acepto"
                     class="form-check-input"
-                    onclick={enableMailField()}
                   />
                   <label for="acepto" class="form-label">
-                    <h6>Acepto enviar mis datos personales, he leido los <a href="#">los términos de privacidad</a></h6>
+                    <p>Acepto enviar mis datos personales, he leido los <a href="#">los términos de privacidad</a></p>
                   </label>
                 </div>
-                <div class="col-6">
+
+                <div class="col-6 privacy">
                   <button
-                    type="submit"
+                    type="button"
                     id="formData"
                     name="formData"
                     class="btn btn-primary"
-                    onmouseover="checkFileds()"
-                    disabled
+                    onMouseOver={checkFields()}
+                    onclick={sendForm()}
                   >
                     Envío mi correo y nombre
                   </button>
-                  <span
-                    id="alertDanger"
-                    name="alertDanger">
-                  </span>
                 </div>
+                <span
+                  id="alertDanger"
+                  name="alertDanger"
+                  class="errorTag"
+                >
+                </span>
               </div>
             </form>
           </div>
@@ -132,23 +132,35 @@
   </div>
 </body>
 <script>
-  function enableMailField() {
-    let mailField = document.getElementById("pregunta2");
-    mailField.disabled = !mailField.disabled;
-    return mailField
-  }
+  function checkFields(){
+    
+    const errorTag = "Por favor llena el formulario";
+    let spanError = document.getElementById('alertDanger');
+    spanError.innerHTML = errorTag;
 
-  const checkFileds = () =>{
-    console.log("testFileds");
     const valdMial = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    const fieldName = document.getElementById('pregunta1');
-
-    if(!valdMial && fieldName.value < 1){
-      return document.getElementById("alertDanger").innerHTML = "Porfavor llena el formulario";
-    }else{
-      return !document.getElementById("formData").disabled
+    const mail = document.getElementById('pregunta2').value;
+    const name = document.getElementById('pregunta1').value;
+    const check = document.getElementById('acepto');
+    
+    if(name.length <= 3){
+      return spanError;
+    }
+    if(!valdMial.test(mail)){
+      return spanError;
+    }
+    if(check.checked === false){
+      return spanError;
     }
 
+    return spanError.innerHTML = "";
+
+  }
+
+  const sendForm = () =>{
+    const form = document.getElementById('reto1');
+    alert('Gracias, ya tienes laguía en tu correo');
+    form.submit();
   }
 </script>
 </html>

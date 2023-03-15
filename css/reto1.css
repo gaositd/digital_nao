@@ -43,10 +43,32 @@
   }
 
   .photo{
-    width: 80%;
+    width: 50%;
     height: auto;
   }
+  .subtitle{
+    font-size: 1.6rem;
+    text-align: center;
+    text-decoration: underline;
+  }
 /* landing page fin*/
+/* formulario inicio*/
+.privacy{
+  display: flex;
+  flex-direction: row;
+}
+
+input[type='checkbox']{
+  width: 30px;
+  height: 20px;
+  margin-right: 0.3em;
+}
+
+.errorTag{
+  color: rgb(247, 48, 48);
+  font-weight: bolder;
+}
+/*formulario fin*/
 .menu{
   display: flex;
   align-items: center;
