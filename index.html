@@ -29,102 +29,76 @@
 </head>
 
 <body class="backgcolor">
-  <div class="d-flex flex-row mb-3 p-3">
-    <div class="p-2 div_logo">
-      <img src="./images/svg/credit-card-front.svg" class="logo" alt="Logotio SADA" />
+  <div class="container columnas">
+    <div class="d-flex flex-row mb-3 p-3">
+      <div class="p-2 div_logo">
+        <img src="./images/svg/credit-card-front.svg" class="logo" alt="Logotio SADA" />
+      </div>
+      <div class="p-2">
+        <nav class="nav justify-content-end p-2">
+          <a class="nav-link text-white fw-bolder" aria-current="page" href="#">Conóceme</a>
+          <a class="nav-link text-white fw-bolder" href="#">¿Qué hago?</a>
+          <a class="nav-link text-white fw-bolder" href="#">Blog</a>
+        </nav>
+      </div>
     </div>
-    <div class="p-2">
-      <nav class="nav justify-content-end p-2">
-        <a class="nav-link text-white fw-bolder" aria-current="page" href="#">Conóceme</a>
-        <a class="nav-link text-white fw-bolder" href="#">¿Qué hago?</a>
-        <a class="nav-link text-white fw-bolder" href="#">Blog</a>
-      </nav>
-    </div>
-  </div>
-  <div class="d-flex flex-row p-5">
-    <div class="p-2 div_landig">
-      <p>
-      <h1 class="name">L.A. Caroline Sada</h1>
-      <h3 class="name subtitle">MASTER CLASS: 
-      Creatividad y confianza: los mejores aliados de una influencer</h3>
-      <img src="./images/svg/vecteezy_young-woman.svg" class="photo" alt="Caroline Sada" />
-      </p>
-    </div>
-    <div class="p-2 div_landig">
-      <div class="container">
-        <div class="row p-2">
-          <div class="col icons">
-            <i class="fa-sharp fa-solid fa-landmark fa-2x"></i>
+    <div class="d-flex flex-row p-5 columnas">
+      <div class="p-2 div_landig columnas">
+        <p>
+        <h1 class="name">L.A. Caroline Sada</h1>
+        <h3 class="name subtitle logo">MASTER CLASS:
+          Creatividad y confianza: los mejores aliados de una influencer</h3>
+        <img src="./images/svg/vecteezy_young-woman.svg" class="photo" alt="Caroline Sada" />
+        </p>
+      </div>
+      <div class="p-2 div_landig columnas">
+        <div class="container">
+          <div class="row p-2">
+            <div class="col icons">
+              <i class="fa-sharp fa-solid fa-landmark fa-2x"></i>
+            </div>
+            <div class="col">
+              <i class="fa-solid fa-credit-card fa-2x"></i>
+            </div>
+            <div class="col">
+              <i class="fa-solid fa-scale-balanced fa-2x"></i>
+            </div>
+            <div class="col">
+              <i class="fa-solid fa-scale-balanced fa-2x"></i>
+            </div>
           </div>
-          <div class="col">
-            <i class="fa-solid fa-credit-card fa-2x"></i>
-          </div>
-          <div class="col">
-            <i class="fa-solid fa-scale-balanced fa-2x"></i>
-          </div>
-          <div class="col">
-            <i class="fa-solid fa-scale-balanced fa-2x"></i>
-          </div>
-        </div>
-        <div class="row p-2">
-          <div class="col div_influencer">
-            <p class="name subtitle">
-              Apóyame con tu nombre y correo, como agradecimiento te envío gratis la guía definitiva para finianzas de casa
-            </p>
-            <form name="reto1" id="reto1">
-              <input
-                type="text"
-                class="form-control col-12 col-md-4 mb-3"
-                id="pregunta1"
-                name="pregunta1"
-                placeholder="Mi nombre completo es"
-                aria-placeholder="Mi nombre completo"
-                required
-              />
+          <div class="row p-2">
+            <div class="col div_influencer">
+              <p class="name subtitle">
+                Apóyame con tu nombre y correo, como agradecimiento te envío gratis la guía definitiva para finianzas de
+                casa
+              </p>
+              <form name="reto1" id="reto1">
+                <input type="text" class="form-control col-12 col-md-4 mb-3" id="pregunta1" name="pregunta1"
+                  placeholder="Mi nombre completo es" aria-placeholder="Mi nombre completo" required />
 
-              <input
-                type="email"
-                class="form-control col-12 col-md-4"
-                id="pregunta2"
-                name="pregunta2"
-                placeholder="Mi correo electrónico es"
-                aria-placeholder="Mi número telefónico es"
-                required
-              />
-              <div class="row align-items-center">
+                <input type="email" class="form-control col-12 col-md-4" id="pregunta2" name="pregunta2"
+                  placeholder="Mi correo electrónico es" aria-placeholder="Mi número telefónico es" required />
+                <div class="row align-items-center">
 
-                <div class="col-6 privacy">
-                  <input
-                    type="checkbox"
-                    name="acepto"
-                    id="acepto"
-                    class="form-check-input"
-                  />
-                  <label for="acepto" class="form-label">
-                    <p>Acepto enviar mis datos personales, he leido los <a href="#">los términos de privacidad</a></p>
-                  </label>
+                  <div class="col-6 privacy">
+                    <input type="checkbox" name="acepto" id="acepto" class="form-check-input" />
+                    <label for="acepto" class="form-label">
+                      <p>Acepto enviar mis datos personales, he leido los <a href="#">los términos de privacidad</a></p>
+                    </label>
+                  </div>
+
+                  <div class="col-6 privacy">
+                    <button type="button" id="formData" name="formData" class="btn btn-primary"
+                      onMouseOver={checkFields()} onclick={sendForm()}>
+                      Envío mi correo y nombre
+                    </button>
+                  </div>
+                  <span id="alertDanger" name="alertDanger" class="errorTag">
+                  </span>
                 </div>
-
-                <div class="col-6 privacy">
-                  <button
-                    type="button"
-                    id="formData"
-                    name="formData"
-                    class="btn btn-primary"
-                    onMouseOver={checkFields()}
-                    onclick={sendForm()}
-                  >
-                    Envío mi correo y nombre
-                  </button>
-                </div>
-                <span
-                  id="alertDanger"
-                  name="alertDanger"
-                  class="errorTag"
-                >
-                </span>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -132,8 +106,8 @@
   </div>
 </body>
 <script>
-  function checkFields(){
-    
+  function checkFields() {
+
     const errorTag = "Por favor llena el formulario";
     let spanError = document.getElementById('alertDanger');
     spanError.innerHTML = errorTag;
@@ -142,14 +116,14 @@
     const mail = document.getElementById('pregunta2').value;
     const name = document.getElementById('pregunta1').value;
     const check = document.getElementById('acepto');
-    
-    if(name.length <= 3){
+
+    if (name.length <= 3) {
       return spanError;
     }
-    if(!valdMial.test(mail)){
+    if (!valdMial.test(mail)) {
       return spanError;
     }
-    if(check.checked === false){
+    if (check.checked === false) {
       return spanError;
     }
 
@@ -157,10 +131,11 @@
 
   }
 
-  const sendForm = () =>{
+  const sendForm = () => {
     const form = document.getElementById('reto1');
     alert('Gracias, ya tienes laguía en tu correo');
     form.submit();
   }
 </script>
+
 </html>

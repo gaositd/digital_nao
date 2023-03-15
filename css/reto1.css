@@ -78,6 +78,7 @@ input[type='checkbox']{
   width: 50%; 
   height: 10em;
 }
+
 .logo{
   float: left;
   margin-bottom: 0.5em;
@@ -86,8 +87,20 @@ input[type='checkbox']{
   width: 21%;
 }
 
-@media screen and (max-width:340px) {
+@media screen and (max-width:480px) {
   .logo{
     display: none;
   }
+
+  .div_logo{
+    width: 100%;
+  }
+
+  .columnas{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
 }
